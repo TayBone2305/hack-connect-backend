@@ -1,5 +1,6 @@
 # Ignore Gradle project-specific cache directory
 .gradle
+Backend/src/main/resources/hackconnect-firebase-admin-sdk.json
 
 # Ignore Gradle build output directory
 build
