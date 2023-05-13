@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build
-        run: gradle build
+        run: ./gradlew build
       - name: Build Dockerfile
         run: docker build . -t hack_connect
 
