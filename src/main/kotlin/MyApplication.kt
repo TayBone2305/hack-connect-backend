@@ -31,6 +31,7 @@ class MyApplication {
  * This Config is for Development only it disables all Security measures to
  * have access from different HTTP Clients
  */
+@Configuration
 @EnableWebSecurity
 class WebSecurityConfig {
     @Bean
@@ -40,8 +41,7 @@ class WebSecurityConfig {
         return http.build()
     }
 
-    @Bean
-    fun corsConfigurationSource(): CorsConfigurationSource {
+    private fun corsConfigurationSource(): CorsConfigurationSource {
         val configuration = CorsConfiguration()
         configuration.allowedOrigins = listOf("*")
         configuration.allowedMethods = listOf("GET", "POST","PUT","DELETE")

@@ -1,11 +1,10 @@
 package default.model
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.Id
+import jakarta.persistence.MappedSuperclass
 import org.springframework.data.domain.Persistable
 import org.springframework.data.util.ProxyUtils
 import java.io.Serializable
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.MappedSuperclass
-import javax.persistence.Transient
 
 /**
  * Abstract base class for entities. Allows parameterization of id type, chooses auto-generation and implements
@@ -33,7 +32,6 @@ abstract class AbstractJpaPersistable<T : Serializable> : Persistable<T> {
      *
      * @see org.springframework.data.domain.Persistable.isNew
      */
-    @Transient
     override fun isNew() = null == getId()
 
     override fun toString() = "Entity of type ${this.javaClass.name} with id: $id"

@@ -1,6 +1,7 @@
 package default.model
 
-import javax.persistence.*
+import jakarta.persistence.Entity
+import jakarta.persistence.*
 
 @Entity
 class Person() : AbstractJpaPersistable<Long>() {

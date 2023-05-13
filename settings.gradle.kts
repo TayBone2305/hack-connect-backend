@@ -1,4 +1,1 @@
-
-
-rootProject.name = "BackendServer"
-include("Backend")
+rootProject.name = "hack-connect"

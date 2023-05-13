@@ -1,5 +1,4 @@
 package default.routes
-import default.firebase
 import default.services.DbUserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -24,7 +23,7 @@ class HomeController(private val userService: DbUserService) {
         value = ["/login"], consumes = ["application/json"] )
     fun login(@RequestBody person:PersonRequest): ResponseEntity<Unit> {
         val users = userService.list()
-        if (users.find { it?.email == person.email && it?.password == person.password } != null ){
+        if (users.find { it?.email == person.email && it.password == person.password } != null ){
             return ResponseEntity.ok().build()
         }
         else{
