@@ -20,6 +20,8 @@ jobs:
       run:
         working-directory: .
 
+    container:
+      image: eclipse-temurin:17-jdk
     steps:
       - uses: actions/checkout@v3
       - name: Build
