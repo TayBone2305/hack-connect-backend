@@ -4,7 +4,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.*
 
 @Entity
-class Person() : AbstractJpaPersistable<Long>() {
+class Person(@Id val person_id: Long) {
     lateinit var username: String
     lateinit var email: String
     lateinit var password: String
@@ -21,17 +21,17 @@ class Person() : AbstractJpaPersistable<Long>() {
 }
 
 @Entity
-class Language() : AbstractJpaPersistable<Long>() {
+class Language(@Id val language_id: Long) {
     lateinit var name: String
 }
 
 @Entity
-class Skill() : AbstractJpaPersistable<Long>() {
+class Skill(@Id val skill_id: Long ) {
     lateinit var name: String
 }
 
 @Entity
-class Room() :AbstractJpaPersistable<Long>(){
+class Room(@Id val room_id:Long) {
     @OneToMany
     lateinit var persons: MutableList<Person>
     @OneToMany
@@ -39,7 +39,7 @@ class Room() :AbstractJpaPersistable<Long>(){
 }
 
 @Entity
-class Message() : AbstractJpaPersistable<Long>() {
+class Message(@Id val message_id:Long)  {
     @ManyToOne
     lateinit var person: Person
     lateinit var date: java.time.LocalDateTime
@@ -47,11 +47,10 @@ class Message() : AbstractJpaPersistable<Long>() {
 }
 
 @Entity
-class Team : AbstractJpaPersistable<Long>() {
+class Team(@Id val team_id:Long)   {
     lateinit var name: String
     var description: String = ""
     var picture = ""
-
     @ManyToMany(mappedBy = "teams")
     var persons: MutableList<Person> = mutableListOf()
 }
